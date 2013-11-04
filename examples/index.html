@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Youtube Player</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script src="../build/build.js"></script>
+    <div id="player"></div>
+    <script>
+      var youtube = require('youtube-player');
+
+      youtube('player', { videoId: 'M7lc1UVf-VE' }, function(err, player){
+        console.log(err, player)
+        player.playVideo();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "youtube-player",
+  "repo": "viatropos/youtube-player",
+  "description": "Youtube Player component",
+  "version": "0.0.1",
+  "keywords": [],
+  "author": "Lance Pollard <lancejpollard@gmail.com>",
+  "dependencies": {
+    "viatropos/load-script": "*"
+  },
+  "development": {
+    "visionmedia/mocha": "*"
+  },
+  "scripts": [
+    "index.js"
+  ],
+  "license": "MIT",
+  "remotes": []
+}
