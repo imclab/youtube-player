@@ -23,34 +23,34 @@ exports = module.exports = player;
  */
 
 function player(selector, opts, fn) {
-	if ('function' == typeof opts) {
-		fn = opts;
-		opts = {};
-	}
+  if ('function' == typeof opts) {
+    fn = opts;
+    opts = {};
+  }
 
-	exports.load(opts, function(err){
-		if (err) return fn(err);
-		fn(null, exports.init(selector, opts));
-	});
+  exports.load(opts, function(err){
+    if (err) return fn(err);
+    fn(null, exports.init(selector, opts));
+  });
 }
 
 exports.load = function(opts, fn){
-	if ('function' == typeof opts) {
-		fn = opts;
-		opts = {};
-	}
+  if ('function' == typeof opts) {
+    fn = opts;
+    opts = {};
+  }
 
-	type = opts.type || 'iframe'; // or 'flash'
+  type = opts.type || 'iframe'; // or 'flash'
 
-	if ('flash' == type) {
-		script('http://www.youtube.com/apiplayer?enablejsapi=1&version=3', fn, 'onYouTubePlayerReady');
-	} else {
-		script('https://www.youtube.com/iframe_api', fn, 'onYouTubeIframeAPIReady');
-	}
+  if ('flash' == type) {
+    script('http://www.youtube.com/apiplayer?enablejsapi=1&version=3', fn, 'onYouTubePlayerReady');
+  } else {
+    script('https://www.youtube.com/iframe_api', fn, 'onYouTubeIframeAPIReady');
+  }
 };
 
 exports.init = function(selector, opts){
-	return new YT.Player(selector, opts);
+  return new YT.Player(selector, opts);
 };
 
 function loadFlash(playerId) {
