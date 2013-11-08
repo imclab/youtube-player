@@ -30,7 +30,7 @@ function player(selector, opts, fn) {
 
   exports.load(opts, function(err){
     if (err) return fn(err);
-    fn(null, exports.init(selector, opts));
+    exports.init(selector, opts, fn);
   });
 }
 
@@ -49,17 +49,19 @@ exports.load = function(opts, fn){
   }
 };
 
-exports.init = function(selector, opts){
-  return new YT.Player(selector, opts);
+exports.init = function(selector, opts, fn){
+  if (!opts.events) opts.events = {};
+  opts.events.onReady = onReady;
+
+  var player = new YT.Player(selector, opts);
+
+  function onReady(event) {
+    fn(null, player = event.target);
+  }
 };
 
 function loadFlash(playerId) {
   ytplayer = document.getElementById("myytplayer");
-}
-
-function onPlayerReady(event) {
-  event.target.setVolume(100);
-  event.target.playVideo();
 }
 
 function onPlayerStateChange() {
