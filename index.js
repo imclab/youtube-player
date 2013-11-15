@@ -20,6 +20,7 @@ exports = module.exports = player;
 /**
  * @see https://developers.google.com/youtube/js_api_reference (the flash version, which is chromeless)
  * @see https://developers.google.com/youtube/iframe_api_reference
+ * @see https://developers.google.com/youtube/player_parameters
  */
 
 function player(selector, opts, fn) {
